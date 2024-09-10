@@ -54,8 +54,8 @@ const getLicenseInformationForDependency = dependencyPath => {
   };
 };
 
-const getLicenseInformationForCompilation = (compilation, filter) => {
-  const fileDependencies = Array.from(compilation.fileDependencies);
+const getLicenseInformationForCompilation = (moduleAndFileDependencies, filter) => {
+  const fileDependencies = Array.from(moduleAndFileDependencies);
   return fileDependencies.reduce((memo, dependencyPath) => {
     const match = dependencyPath.match(filter);
     if (match) {
