@@ -21,7 +21,7 @@ describe("getOptions", () => {
 
   it("should throw for unknown property", () => {
     expect(() => getOptions({ bad: 1 })).toThrowErrorMatchingInlineSnapshot(
-      `"Expected a value of type \`never\` for \`bad\` but received \`1\`."`
+      `"At path: bad -- Expected a value of type \`never\`, but received: \`1\`"`
     );
   });
 
@@ -43,7 +43,7 @@ describe("getOptions", () => {
   it("should throw for unknown 'override' value property", () => {
     const options = { override: { "assignment@^2.0.0": { licenceName: "MIT" } } };
     expect(() => getOptions(options)).toThrowErrorMatchingInlineSnapshot(
-      `"Expected a value of type \`never\` for \`override.assignment@^2.0.0.licenceName\` but received \`\\"MIT\\"\`."`
+      `"At path: override.assignment@^2.0.0.licenceName -- Expected a value of type \`never\`, but received: \`"MIT"\`"`
     );
   });
 });
